@@ -77,3 +77,59 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+
+ <section class="content" id="news">
+        <div class="container h-20">
+            <div class="row h-20 align-items-center justify-content-center pt-5 pb-5 mt-0 mb-0">
+                <div class="col-12 text-start">
+                    <h2>News</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-start">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="images/my-spoon-illusion-16.jpg" class="card-img-top" alt="News Image">
+                            <div class="card-body">
+                                <h5 class="card-title">News title</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Voluptatibus distinctio dolore, voluptates ducimus ab alias in sint possimus? Labore
+                                    corporis ullam tempore expedita eum saepe nam maiores vel inventore fuga!</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">1 April, 2022</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/My-Spoon-Matcha-Latte-2.jpg" class="card-img-top" alt="News Image">
+                            <div class="card-body">
+                                <h5 class="card-title">News title</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+                                    modi laborum, voluptas dignissimos impedit debitis est perferendis, ab maxime earum
+                                    quas voluptatem. Id facere ipsa veritatis. Mollitia sit corrupti quia.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">21 Januar, 2022</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/My-Spoon-Home-I-9.jpg" class="card-img-top" alt="News Image">
+                            <div class="card-body">
+                                <h5 class="card-title">News title</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate
+                                    quod deserunt, ea incidunt, necessitatibus nostrum qui veritatis veniam sequi
+                                    quaerat fugiat? Animi, magnam. Consequuntur quia laborum, aperiam distinctio minima
+                                    iste!</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">1 Januar, 2022</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
