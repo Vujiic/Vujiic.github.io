@@ -1,3 +1,26 @@
+<?php
+if (isset($_POST['submit'])) {
+    $connection = mysqli_connect('localhost', 'root', '', 'buyersForm');
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $country = $_POST['country'];
+    $formSelect = $_POST['formSelect'];
+    $email = $_POST['email'];
+    $companyIndustry = $_POST['companyIndustry'];
+    $companyName = $_POST['companyName'];
+
+    $query = 'INSERT INTO buyers(firstName,lastName,country,formSelect,email,companyIndustry,companyName) ';
+    $query .= "VALUES ('$firstName', '$lastName', '$country', '$formSelect', '$email', '$companyIndustry', '$companyName')";
+    $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die('Query Failed');
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +32,11 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,8 +48,7 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logo.png" alt="Logo" width="147" height="35">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
@@ -49,17 +69,13 @@
                         <a class="nav-link" href="#footer">Contact</a>
                     </li>
                     <li class="nav-item dropdown" id="lang">
-                        <a class="nav-link dropdown-toggle justify-content-center" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <span><img src="images/flags/uk-flag.png" alt="UK Flag" id="langFlag"></span> EN
+                        <a class="nav-link dropdown-toggle justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span><img src="langImages/flags/uk-flag.png" alt="UK Flag" id="langFlag"></span> EN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><span><img src="images/flags/rsflag.webp"
-                                            alt="RS Flag" id="langFlag"></span> RS</a></li>
-                            <li><a class="dropdown-item" href="#"><span><img src="images/flags/spainflag.webp"
-                                            alt="ES Flag" id="langFlag"></span> ES</a></li>
-                            <li><a class="dropdown-item" href="#"><span><img src="images/flags/deflag.webp"
-                                            alt="DE Flag" id="langFlag"></span> DE</a></li>
+                            <li><a class="dropdown-item" href="#"><span><img src="langImages/flags/rsflag.webp" alt="RS Flag" id="langFlag"></span> RS</a></li>
+                            <li><a class="dropdown-item" href="#"><span><img src="langImages/flags/spainflag.webp" alt="ES Flag" id="langFlag"></span> ES</a></li>
+                            <li><a class="dropdown-item" href="#"><span><img src="langImages/flags/deflag.webp" alt="DE Flag" id="langFlag"></span> DE</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -108,9 +124,10 @@
                     <h2>Products</h2>
                 </div>
             </div>
-            <div class=" row">
-                <div class="col-md-4 text-start pt-3">
+            <div class="row align-items-center text-center">
+                <div class="col-md-4 text-start pt-3 align-items-center">
                     <div class="contentImg text-center">
+                        <img src="products/mocup pakovanje kesica MS Original.png" alt="Edible Spoon Original" width="480" height="270">
                     </div>
                 </div>
                 <div class=" col-md-8 text-start">
@@ -139,28 +156,18 @@
                         necessitatibus ratione minima inventore optio molestiae ea non veniam? Quibusdam ipsam quos
                         enim obcaecati nulla dolorum itaque.<br><a href="#">Read more</a></p>
                 </div>
-                <div class="col-md-4 text-start">
-                    <div class="contentImg"></div>
+                <div class="col-md-4">
+                    <div class="contentImg">
+                        <img src="products/mocup pakovanje kesica MS Cinnamon.png" alt="Edible Spoon Original" width="480" height="270">
+                    </div>
                 </div>
             </div>
             <div class=" row h-20 align-items-center justify-content-center pt-5 mt-0 mb-0">
                 <div class="col-md-4 text-start">
-                    <div class="contentImg"></div>
+                    <div class="contentImg">
+                        <img src="products/Edible straw MySpoon.png" alt="Edible Spoon Original" width="480" height="270">
+                    </div>
                 </div>
-                <div class=" col-md-8 text-start">
-                    <h3>Edible spoon cacao</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quas magnam sequi odio,
-                        perferendis ad unde recusandae magni voluptates similique dicta pariatur eveniet, modi sed
-                        cupiditate et, officia saepe quaerat.
-                        Corrupti, similique. Corporis rem consequuntur nam voluptatum explicabo deserunt fugiat.
-                        Porro non, perferendis, cumque placeat dicta, blanditiis odio laudantium voluptatum
-                        perspiciatis animi iusto tenetur odit velit vitae et? Consequatur, iusto.
-                        Est, voluptates accusamus natus alias, magni vero blanditiis dolores ad vel hic ipsum
-                        necessitatibus ratione minima inventore optio molestiae ea non veniam? Quibusdam ipsam quos
-                        enim obcaecati nulla dolorum itaque.<br><a href="#">Read more</a></p>
-                </div>
-            </div>
-            <div class=" row h-20 align-items-center justify-content-center pt-5 mt-0 mb-0">
                 <div class=" col-md-8 text-start">
                     <h3>Edible straws</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quas magnam sequi odio,
@@ -173,14 +180,8 @@
                         necessitatibus ratione minima inventore optio molestiae ea non veniam? Quibusdam ipsam quos
                         enim obcaecati nulla dolorum itaque.<br><a href="#">Read more</a></p>
                 </div>
-                <div class="col-md-4 text-start">
-                    <div class="contentImg"></div>
-                </div>
             </div>
             <div class=" row h-20 align-items-center justify-content-center pt-5 pb-5 mt-0 mb-0">
-                <div class="col-md-4 text-start">
-                    <div class="contentImg"></div>
-                </div>
                 <div class=" col-md-8 text-start">
                     <h3>Edible icecream spoon</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quas magnam sequi odio,
@@ -192,6 +193,11 @@
                         Est, voluptates accusamus natus alias, magni vero blanditiis dolores ad vel hic ipsum
                         necessitatibus ratione minima inventore optio molestiae ea non veniam? Quibusdam ipsam quos
                         enim obcaecati nulla dolorum itaque.<br><a href="#">Read more</a></p>
+                </div>
+                <div class="col-md-4 text-start">
+                    <div class="contentImg">
+                        <img src="products/mocup pakovanje kesica MS Cinnamon.png" alt="Edible Spoon Original" width="480" height="270">
+                    </div>
                 </div>
             </div>
         </div>
@@ -214,22 +220,22 @@
                 <div class="col-1 text-start" id="formSpliter">
                 </div>
                 <div class="col-md-5 text-start" id="form">
-                    <form class="row g-3">
+                    <form class="row g-3" action="index.php" method="POST">
                         <div class="col-md-6">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="John" required>
                         </div>
                         <div class="col-md-6">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Smith" required>
+                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Smith" required>
                         </div>
                         <div class="col-md-6">
                             <label for="country" class="form-label">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Country Name" required>
+                            <input type="text" class="form-control" name="country" id="country" placeholder="Country Name" required>
                         </div>
                         <div class="col-md-6">
                             <label for="input" class="form-label">I am</label>
-                            <select id="input" class="form-select">
+                            <select id="input" name="formSelect" class="form-select">
                                 <option selected>Company Owner</option>
                                 <option>Wholesaler</option>
                                 <option>Private Entity</option>
@@ -237,27 +243,26 @@
                         </div>
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="name@domen.com" required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="name@domen.com" required>
                         </div>
                         <div class="col-12">
                             <label for="companyIndustry" class="form-label">Company Industry</label>
-                            <input type="text" class="form-control" id="companyIndustry" placeholder="Hospitality">
+                            <input type="text" class="form-control" name="companyIndustry" id="companyIndustry" placeholder="Hospitality">
                         </div>
                         <div class="col-12">
                             <label for="companyName" class="form-label">Company Name</label>
-                            <input type="text" class="form-control" id="companyName" placeholder="MyCompanyName">
+                            <input type="text" class="form-control" name="companyName" id="companyName" placeholder="MyCompanyName">
                         </div>
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
                                 <label class="form-check-label" for="gridCheck">
-                                    I have read and agree to the <a href="#">terms of service</a> and <a
-                                        href="#">privacy policy</a>
+                                    I have read and agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
                                 </label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary" id="button">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="submit" id="button">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -520,12 +525,9 @@
             }
         });
     </script>
-    <script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 
 </html>
